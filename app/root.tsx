@@ -1,10 +1,15 @@
+import { LinksFunction } from '@remix-run/node';
 import {
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react";
+} from '@remix-run/react';
+
+import styles from '~/css/reset.css?url';
+
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -26,8 +31,4 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />;
-}
-
-export function HydrateFallback() {
-  return <p>Loading...</p>;
 }

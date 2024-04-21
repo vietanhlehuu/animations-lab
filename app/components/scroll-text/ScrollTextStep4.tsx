@@ -68,9 +68,9 @@ const ScrollTextStep4: React.FC = () => {
           top,
           bottom,
         }}
-        className="mx-auto flex min-h-screen max-w-4xl items-center justify-center py-5"
+        className="mx-auto flex min-h-screen max-w-md items-center justify-center p-5 xl:max-w-4xl"
       >
-        <p className="w-full text-5xl font-bold leading-snug">
+        <p className="w-full text-xl font-bold leading-snug md:text-3xl xl:text-5xl">
           {wordsArray.map((item, index) => {
             return (
               <React.Fragment key={index}>

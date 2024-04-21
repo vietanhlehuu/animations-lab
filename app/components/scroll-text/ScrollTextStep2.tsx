@@ -16,14 +16,14 @@ const ScrollTextStep2: React.FC = () => {
   return (
     <motion.div
       ref={ref}
-      className="flex min-h-screen items-center justify-center bg-black py-5"
+      className="flex min-h-screen items-center justify-center bg-black"
     >
-      <div className="mx-auto max-w-4xl text-left">
+      <div className="mx-auto max-w-md p-5 text-left xl:max-w-4xl">
         <motion.span
           style={{
             backgroundImage: animatedGradient,
           }}
-          className="bg-clip-text text-5xl font-bold leading-snug text-transparent"
+          className="bg-clip-text text-xl font-bold leading-snug text-transparent md:text-3xl xl:text-5xl"
         >
           In Chronicle everything is made with Blocks that come with pixel
           perfect design, interactivity and motion out of the box. Instead of

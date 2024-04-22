@@ -76,12 +76,11 @@ const ScrollTextStep4: React.FC = () => {
           {wordsArray.map((item, index) => {
             return (
               <React.Fragment key={index}>
-                {index !== 0 && <span className="inline-block">&nbsp;</span>}
                 <Word
                   content={item}
                   threshold={activeThresholds[index]}
                   scrollProgress={scrollYProgress}
-                />
+                />{' '}
               </React.Fragment>
             );
           })}
@@ -105,7 +104,7 @@ const Word: React.FC<{
       style={{
         color,
       }}
-      className="inline-block transition duration-300"
+      className="transition duration-300"
     >
       {content}
     </motion.span>

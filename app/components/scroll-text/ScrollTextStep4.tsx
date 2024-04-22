@@ -41,12 +41,14 @@ const ScrollTextStep4: React.FC = () => {
 
   useMotionValueEvent(velocity, 'change', (value) => {
     if (value < 0) {
-      top.set('auto');
-      bottom.set(0);
-    }
-    if (value > 0) {
+      // go up
       top.set(0);
       bottom.set('auto');
+    }
+    if (value > 0) {
+      // go down
+      top.set('auto');
+      bottom.set(0);
     }
   });
 

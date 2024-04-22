@@ -1,7 +1,14 @@
 import React, { useRef } from 'react';
-import { useScroll, motion, useTransform } from 'framer-motion';
+import {
+  useScroll,
+  motion,
+  useTransform,
+  useVelocity,
+  useMotionValueEvent,
+  useMotionValue,
+} from 'framer-motion';
 
-const ScrollTextStep3: React.FC = () => {
+const ScrollTextStep31: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -13,12 +20,41 @@ const ScrollTextStep3: React.FC = () => {
     return `linear-gradient(to right, white ${progress}%, #202020 ${progress}%)`;
   });
 
+  const velocity = useVelocity(scrollYProgress);
+
+  const top = useMotionValue<number | 'auto'>(0);
+  const bottom = useMotionValue<number | 'auto'>('auto');
+
+  useMotionValueEvent(velocity, 'change', (value) => {
+    if (value < 0) {
+      // go up
+      top.set(0);
+      bottom.set('auto');
+    }
+    if (value > 0) {
+      // go down
+      top.set('auto');
+      bottom.set(0);
+    }
+  });
+
+  const justifyContent = useTransform(() => {
+    return top.get() === 'auto' ? 'flex-end' : 'flex-start';
+  });
+
   return (
-    <motion.div className="min-h-[200vh] bg-black" ref={ref}>
+    <motion.div
+      className=" flex min-h-[200vh] flex-col bg-black"
+      ref={ref}
+      style={{
+        justifyContent,
+      }}
+    >
       <motion.div
         style={{
           position: 'sticky',
-          top: 0,
+          top,
+          bottom,
         }}
         className="mx-auto flex min-h-screen max-w-md items-center justify-center p-5 xl:max-w-4xl"
       >
@@ -40,4 +76,4 @@ const ScrollTextStep3: React.FC = () => {
   );
 };
 
-export default ScrollTextStep3;
+export default ScrollTextStep31;

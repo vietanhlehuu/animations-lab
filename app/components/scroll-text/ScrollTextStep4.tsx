@@ -9,7 +9,7 @@ import {
   MotionValue,
 } from 'framer-motion';
 
-const content = `In Chronicle everything is made with Blocks that come with pixel perfect design, interactivity and motion out of the box. Instead of designing from scratch, simply choose the right one from our library of blocks and see the magic unfold.`;
+const content = `Scroll-linked animations are when the progress of an animation is directly tied to scroll progress. Scroll-triggered animations are when a normal animation is triggered when an element enters or leaves the viewport.`;
 
 const wordsArray = content.split(' ');
 
